@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Your Name
+name: kai
 
 # Short bio or description (displayed in the header)
-description: Web Developer from Somewhere
+description: lets get this running
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://photos.app.goo.gl/FlOrMGqPjHx8OHFd2
+avatar: https://avatars1.githubusercontent.com/u/11209408?s=460&v=4
 
 #
 # Flags below are optional
@@ -21,7 +21,7 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: barryclark/jekyll-now
+  github: github.com/KaiMohr/
   instagram:
   linkedin:
   pinterest:
