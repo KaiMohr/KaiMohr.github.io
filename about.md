@@ -4,12 +4,15 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
 
-### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
 
-### Contact me
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
 [email@domain.com](mailto:email@domain.com)

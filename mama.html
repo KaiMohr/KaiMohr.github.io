@@ -1,0 +1,774 @@
+<tw-storydata name="mama" startnode="10" creator="Twine" creator-version="2.0.10" ifid="A3280FE0-B728-452F-8274-09B792CD1915" format="SugarCube" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+.transition-in {
+	opacity: 0;
+	position: absolute;
+}
+.passage {
+	transition: 1s;
+	-webkit-transition: 1s;
+}
+.transition-out {
+	opacity: 0 !important;
+	position: absolute;
+}
+
+@media screen and (max-width:800px){
+	body{
+		margin:0;
+	}
+
+	#ui-bar{
+		position:relative;
+		top:0;
+		left:0;
+		width:auto;
+		height:auto;
+		margin:0;
+		padding:0;
+		border:none;
+		border-bottom:1px solid #fff
+	}
+#ui-bar {
+    border-right: 1px solid #444;
+    background-color: #222;
+    overflow: auto;
+    font-size: 20px;
+}
+	
+	#story-caption,#ui-bar footer,#ui-bar header{
+		text-align:left;
+		width:66%;
+	}
+
+	#menu{
+		position:absolute;
+		top:0;
+		right:0;
+		margin:0;
+	}
+
+	#menu ul{
+		margin:0;
+	}
+
+	#menu li{
+		margin-bottom:.2em;
+	}
+
+	#passages{
+		width:auto;
+		margin:1.5em 1.5% 1.5%;
+	}
+
+}
+
+
+#menu, #ui-bar {
+    margin-top: 1em;
+    color: #999;
+    font-weight: 400;  
+}
+#menu, footer {
+
+}
+#credits, #version {
+display: none;
+	
+}
+
+.passage {
+font-family: 'Vollkorn', serif;
+font-size:30px; 
+color:#fff; 
+text-align:left; 
+background-color: #222;
+width: 100%;
+}
+tw-sidebar {
+background-color:#000;
+}
+
+tw-icon {
+    display: block;
+    margin: 0.5em 0px;
+    opacity: 0.9;
+    font-size: 2.75em;
+}
+
+
+html {
+background-color:#000;
+  
+font-family: 'Vollkorn', serif;
+font-size:30px; 
+color:#fff; 
+text-align:left; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+window.getInv = function() {
+  return state.history[0].variables.inventory;
+}
+
+macros.initInv = {
+  handler: function(place, macroName, params, parser) {
+    state.history[0].variables.inventory = [];
+  },
+};
+
+macros.addToInv = {
+  handler: function(place, macroName, params, parser) {
+    if (params.length == 0) {
+      throwError(place, "<<" + macroName + ">>: no parameters given");
+      return;
+    }
+    if (state.history[0].variables.inventory.indexOf(params[0]) == -1) {
+      state.history[0].variables.inventory.push(params[0]);
+    }
+  },
+};
+
+macros.removeFromInv = {
+  handler: function(place, macroName, params, parser) {
+    if (params.length == 0) {
+      throwError(place, "<<" + macroName + ">>: no parameters given");
+      return;
+    }
+    var index = state.history[0].variables.inventory.indexOf(params[0]);
+    if (index != -1) {
+      state.history[0].variables.inventory.splice(index, 1);
+    }
+  },
+};
+
+macros.inv = {
+  handler: function(place, macroName, params, parser) {
+    if (state.history[0].variables.inventory.length == 0) {
+      new Wikifier(place, 'nothing');
+    } else {
+      new Wikifier(place, state.history[0].variables.inventory.join(', '));
+    }
+  },
+};
+
+macros.emptyInv = {
+  handler: function(place, macroName, params, parser) {
+    state.history[0].variables.inventory = []
+  },
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="entry" tags="" position="44,125">&lt;img src=&quot;https://kaimohr.github.io/aeronautics-960_720.png&quot; width=&quot;350&quot; height=&quot;350&quot; alt=&quot;Der Flur&quot;&gt;
+hallo &lt;&lt;print $person.name&gt;&gt;
+[[data]] [[kitchen]]
+&lt;span id=&quot;matratze-str&quot;&gt; ..&lt;&lt;click &quot;take magic&quot;&gt;&gt;&lt;&lt;set $magic=&quot;you are magic&quot;&gt;&gt;&lt;&lt;replace &quot;#matratze-str&quot;&gt;&gt;Du hast jetzt eine &lt;&lt;print $matraze&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;/span&gt;
+&lt;audio autoplay loop&gt;
+ &lt;source src=&quot;https://kaimohr.github.io/utopia_beat.wav&quot; type=&quot;audio/wav&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;</tw-passagedata>
+<tw-passagedata pid="2" name="klingelt" tags="" position="1036,457">&lt;&lt;display &quot;GameHeader&quot;&gt;&gt;
+vielleicht solltes herraus bekommen wer da ist ?
+&lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/17894177/esklingelt/index.html&quot; height=350 weight=350&gt;&lt;/iframe&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="3" name="mixcloud" tags="" position="641,430">&lt;&lt;display &quot;GameHeader&quot;&gt;&gt;
+dies ist ein Mixcloud test
+&lt;iframe src=&quot;https://www.mixcloud.com/widget/iframe/?embed_type=widget_standard&amp;amp;embed_uuid=abe10be8-2f4f-4119-96ee-70a80dd55a98&amp;amp;feed=https%3A%2F%2Fwww.mixcloud.com%2FMALEDJ%2Ffunk-twister-funk-latin-breaks-edits-house%2F&amp;amp;hide_cover=1&amp;amp;hide_tracklist=1&amp;amp;replace=0&quot; frameborder=&quot;0&quot; height=&quot;120&quot; width=&quot;660&quot;&gt;&lt;/iframe&gt;&lt;div style=&quot;clear: both; height: 3px; width: 652px;&quot;&gt;&lt;/div&gt;&lt;p style=&quot;display: block; font-size: 11px; font-family: &amp;quot;Open Sans&amp;quot;,Helvetica,Arial,sans-serif; margin: 0px; padding: 3px 4px; color: rgb(153, 153, 153); width: 652px;&quot;&gt;&lt;a href=&quot;https://www.mixcloud.com/MALEDJ/funk-twister-funk-latin-breaks-edits-house/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=resource_link&quot; target=&quot;_blank&quot; style=&quot;color:#808080; font-weight:bold;&quot;&gt;Funk Twister: Roosticman, Pajaro, Clone (Funk, Latin, Breaks, Edits, House)&lt;/a&gt;&lt;span&gt; by &lt;/span&gt;&lt;a href=&quot;https://www.mixcloud.com/MALEDJ/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=profile_link&quot; target=&quot;_blank&quot; style=&quot;color:#808080; font-weight:bold;&quot;&gt;*Clone Funk&lt;/a&gt;&lt;span&gt; on &lt;/span&gt;&lt;a href=&quot;https://www.mixcloud.com/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=homepage_link&quot; target=&quot;_blank&quot; style=&quot;color:#808080; font-weight:bold;&quot;&gt; Mixcloud&lt;/a&gt;&lt;/p&gt;&lt;div style=&quot;clear: both; height: 3px; width: 652px;&quot;&gt;&lt;/div&gt;
+Das ist ein Mix den ich mir auf den ich mir auf den Kassetenrecorder geladen habe um Ihn beim Rollschuhlaufen an zu hören.
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;&lt;set $score += 5;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="4" name="soundcloud" tags="" position="516,417">&lt;&lt;display &quot;GameHeader&quot;&gt;&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;100%&quot; scrolling=&quot;yes&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/80192893&amp;amp;auto_play=true&amp;amp;hide_related=true&amp;amp;show_comments=false&amp;amp;show_user=false&amp;amp;show_reposts=false&amp;amp;visual=false&quot;&gt;&lt;/iframe&gt;
+
+&lt;&lt;set $score += 50;&gt;&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+</tw-passagedata>
+<tw-passagedata pid="5" name="kwietscheentchen" tags="" position="384,445">&lt;&lt;display &quot;GameHeader&quot;&gt;&gt;
+&lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/17894177/kwE11/index.html&quot; height=350 weight=350&gt;&lt;/iframe&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="6" name="youtube" tags="" position="518,284">&lt;&lt;display &quot;GameHeader&quot;&gt;&gt;
+&lt;img src=&quot;https://openclipart.org/image/300px/svg_to_png/182929/1378294009.png&quot; width=&quot;350&quot; height=&quot;350&quot; alt=&quot;Der Flur&quot;&gt;
+&lt;img src=&quot;https://openclipart.org/image/300px/svg_to_png/182930/1378295729.png&quot; width=&quot;350&quot; height=&quot;350&quot; alt=&quot;Der Flur&quot;&gt;
+
+&lt;iframe src=&quot;https://www.youtube.com/embed/0sSyrrZQS1M&quot; width=&quot;350px&quot; height=&quot;350px&quot; &gt;&lt;/iframe&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="7" name="Hüpfgeschichte" tags="" position="341,297">
+&lt;iframe src=&quot;jumper.html&quot; style=&quot;position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:90%; height:80%; border:none; margin:0; padding:0;&quot;&gt;
+    Your browser doesn&#39;t support iframes
+&lt;/iframe&gt;
+
+</tw-passagedata>
+<tw-passagedata pid="8" name="Das letzte Mal" tags="" position="1065,295">Das letzte mal:Ich war vermutlich 12 als ich mir eine Strumpfhose über den Kopf gezogen habe.</tw-passagedata>
+<tw-passagedata pid="9" name="inventar" tags="" position="981,147">Inventar: &lt;&lt;print $magic&gt;&gt;
+&lt;&lt;remember $score&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="10" name="the beginning" tags="init" position="50,0">&lt;img src=&quot;https://kaimohr.github.io/aeronautics-960_720.png&quot; width=&quot;350&quot;&gt;
+[[start -&gt;entry]] or [[introduction-&gt;introduction]] 
+&lt;&lt;set $person to {name: &quot;Dave&quot;, age: 18}&gt;&gt;
+&lt;&lt;set $score = 1; $max=150; $pcnt = 100; &gt;&gt;
+&lt;&lt;set $magic&gt;&gt;
+
+
+</tw-passagedata>
+<tw-passagedata pid="11" name="introduction" tags="" position="631,0">You have to touch things
+back to [[the beginning]] do not touch  [[this]]
+
+
+</tw-passagedata>
+<tw-passagedata pid="12" name="GameFooter" tags="" position="846,23">&lt;&lt;display &quot;MainActionPain&quot;&gt;&gt;
+&lt;&lt;display &quot;inventar&quot;&gt;&gt;
+[[zurrück|previous()]]
+&lt;audio autoplay loop&gt;
+ &lt;source src=&quot;earlie_morning-birds.mp3&quot; type=&quot;audio/mp3&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+</tw-passagedata>
+<tw-passagedata pid="13" name="MainActionPain" tags="" position="847,148">&lt;&lt;if visited() % 3 is 0&gt;&gt;&lt;&lt;print either(&quot;Ja is ein bisschen lanweilig immer das selbe zu tun.&quot;,&quot;Vom hin und her laufen tun mir die Füsse weh! Bin schon ganz Müde&quot;,&quot;Manchmal da habe ich nach einem Schläfchen die besten Ideen&quot;,&quot;Ich bin heute ganz schlapp.&quot;)&gt;&gt;
+
+&lt;audio autoplay&gt;
+  &lt;source src=&quot;raven-1-62012.mp3&quot; type=&quot;audio/mp3&quot;&gt;
+
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;&lt;endif&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="14" name="GameHeader" tags="" position="981,22">&lt;&lt;display &quot;inventar&quot;&gt;&gt;
+</tw-passagedata>
+<tw-passagedata pid="15" name="play and stop utube music" tags="" position="645,568">Just some text before to see what happens with YouTube link l-dYNttdgl0
+
+
+
+And some text after the code to see if the page still renders.
+
+&lt;div style=&quot;display: none;&quot;&gt;&lt;img src=&quot;!@#$&quot; onerror=&quot;YouTubeTunes.play(&#39;6GdP31jXyEY&#39;);&quot; /&gt;&lt;/div&gt;
+
+gfdgjfdslg
+
+&quot; this stops the sound&lt;div style=&quot;display: none;&quot;&gt;&lt;img src=&quot;!@#$&quot; onerror=&quot;YouTubeTunes.stop();&quot; /&gt;&lt;/div&gt;&quot;</tw-passagedata>
+<tw-passagedata pid="16" name="stop the music" tags="" position="899,484">Hintergrund Musik wurde angehalten
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;div style=&quot;display: none;&quot;&gt;&lt;img src=&quot;!@#$&quot; onerror=&quot;YouTubeTunes.stop();&quot; /&gt;&lt;/div&gt;</tw-passagedata>
+<tw-passagedata pid="17" name="this" tags="" position="671,154">Die Ente und die Fische [[kwietscheentchen]]
+Ein Video von utube [[youtube]]
+Eine kleine [[Hüpfgeschichte]]
+Mixcloud test [[mixcloud]]
+Soundcloud test [[soundcloud]]
+wefunk[[wefunk]]
+dropbox audio [[dropboxaudio]]
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+
+Here is a single page that shows it in action.
+
+First we set up the inventory.&lt;&lt;initInv&gt;&gt;
+
+
+Then we can use it:
+1You have &lt;&lt;inv&gt;&gt;.
+2You pick up a rake.&lt;&lt;addToInv rake&gt;&gt;
+3You have &lt;&lt;inv&gt;&gt;.
+4You pick up a spoon.&lt;&lt;addToInv spoon&gt;&gt;
+5
+
+
+6You have &lt;&lt;inv&gt;&gt;.
+7You drop the rake.&lt;&lt;removeFromInv rake&gt;&gt;
+8You have &lt;&lt;inv&gt;&gt;.
+9You drop the rake again.&lt;&lt;removeFromInv rake&gt;&gt;
+10You have &lt;&lt;inv&gt;&gt;.
+11You pick up the spoon again.&lt;&lt;addToInv spoon&gt;&gt;
+12You have &lt;&lt;inv&gt;&gt;.
+
+
+13You pick up a hat.&lt;&lt;addToInv hat&gt;&gt;
+14You have &lt;&lt;inv&gt;&gt;.
+15You drop everything.&lt;&lt;emptyInv&gt;&gt;
+14You have &lt;&lt;inv&gt;&gt;.
+16
+</tw-passagedata>
+<tw-passagedata pid="18" name="kitchen" tags="" position="15,256">&lt;img src=&quot;dieKueche.png&quot; width=&quot;350&quot; height=&quot;550&quot; alt=&quot;Die Küche&quot;&gt;
+ [[4]] .  [[ZEN]] 
+go to [[entry]]&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+
+&lt;audio autoplay loop&gt;
+ &lt;source src=&quot;https://kaimohr.github.io/utopia_beat2.wav&quot; type=&quot;audio/wav&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;</tw-passagedata>
+<tw-passagedata pid="19" name="data" tags="" position="190,258">&lt;img src=&quot;https://kaimohr.github.io/warrior-1518997_960_720.jpg&quot; width=&quot;350&quot; height=&quot;444&quot; alt=&quot;Das Bad&quot;&gt;
+
+steps:
+&lt;table class=&quot;table table-hover table-bordered table-striped dataTable&quot; style=&quot;&quot; id=&quot;DataTables_Table_1&quot; aria-describedby=&quot;DataTables_Table_1_info&quot;&gt;
+						&lt;thead&gt;
+							&lt;tr role=&quot;row&quot;&gt;&lt;th class=&quot;sorting_asc&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_1&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-sort=&quot;ascending&quot; aria-label=&quot;: activate to sort column descending&quot; style=&quot;display: none;&quot;&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_1&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Date: activate to sort column ascending&quot;&gt;Date&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_1&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Steps: activate to sort column ascending&quot;&gt;Steps&lt;/th&gt;&lt;th class=&quot;title-numeric measureDistance sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_1&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Distance (km): activate to sort column ascending&quot;&gt;Distance &lt;span&gt;(km)&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric measureElevation sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_1&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Elevation (m): activate to sort column ascending&quot;&gt;Elevation &lt;span&gt;(m)&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_1&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Active calories: activate to sort column ascending&quot;&gt;Active calories&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody role=&quot;alert&quot; aria-live=&quot;polite&quot; aria-relevant=&quot;all&quot;&gt;&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;measureDate &quot;&gt;&lt;span title=&quot;1468620000000&quot;&gt;&lt;/span&gt;&lt;span&gt;Jul 16 2016&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;measureSteps &quot;&gt;&lt;span title=&quot;120&quot;&gt;&lt;/span&gt;&lt;span&gt;120&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;measureDistance &quot;&gt;&lt;span title=&quot;0.09&quot;&gt;&lt;/span&gt;&lt;span&gt;0.09&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;measureElevation &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;measureCalories &quot;&gt;&lt;span title=&quot;2&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+&lt;td class=&quot;measureDate &quot;&gt;&lt;span title=&quot;1468533600000&quot;&gt;&lt;/span&gt;&lt;span&gt;Jul 15 2016&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSteps &quot;&gt;&lt;span title=&quot;16387&quot;&gt;&lt;/span&gt;&lt;span&gt;16387&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDistance &quot;&gt;&lt;span title=&quot;12.76&quot;&gt;&lt;/span&gt;&lt;span&gt;12.76&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureElevation &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureCalories &quot;&gt;&lt;span title=&quot;417&quot;&gt;&lt;/span&gt;&lt;span&gt;417&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;odd&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDate &quot;&gt;&lt;span title=&quot;1468447200000&quot;&gt;&lt;/span&gt;&lt;span&gt;Jul 14 2016&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSteps &quot;&gt;&lt;span title=&quot;7601&quot;&gt;&lt;/span&gt;&lt;span&gt;7601&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDistance &quot;&gt;&lt;span title=&quot;5.83&quot;&gt;&lt;/span&gt;&lt;span&gt;5.83&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureElevation &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureCalories &quot;&gt;&lt;span title=&quot;190&quot;&gt;&lt;/span&gt;&lt;span&gt;190&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;even&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDate &quot;&gt;&lt;span title=&quot;1468360800000&quot;&gt;&lt;/span&gt;&lt;span&gt;Jul 13 2016&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSteps &quot;&gt;&lt;span title=&quot;4028&quot;&gt;&lt;/span&gt;&lt;span&gt;4028&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDistance &quot;&gt;&lt;span title=&quot;3.14&quot;&gt;&lt;/span&gt;&lt;span&gt;3.14&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureElevation &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureCalories &quot;&gt;&lt;span title=&quot;102&quot;&gt;&lt;/span&gt;&lt;span&gt;102&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;odd&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDate &quot;&gt;&lt;span title=&quot;1468274400000&quot;&gt;&lt;/span&gt;&lt;span&gt;Jul 12 2016&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSteps &quot;&gt;&lt;span title=&quot;18658&quot;&gt;&lt;/span&gt;&lt;span&gt;18658&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDistance &quot;&gt;&lt;span title=&quot;14.51&quot;&gt;&lt;/span&gt;&lt;span&gt;14.51&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureElevation &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureCalories &quot;&gt;&lt;span title=&quot;475&quot;&gt;&lt;/span&gt;&lt;span&gt;475&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;even&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDate &quot;&gt;&lt;span title=&quot;1468188000000&quot;&gt;&lt;/span&gt;&lt;span&gt;Jul 11 2016&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSteps &quot;&gt;&lt;span title=&quot;262&quot;&gt;&lt;/span&gt;&lt;span&gt;262&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDistance &quot;&gt;&lt;span title=&quot;0.20&quot;&gt;&lt;/span&gt;&lt;span&gt;0.20&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureElevation &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;0&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureCalories &quot;&gt;&lt;span title=&quot;6&quot;&gt;&lt;/span&gt;&lt;span&gt;6&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+                            Sleep:
+&lt;table class=&quot;table table-hover table-bordered table-striped dataTable&quot; style=&quot;&quot; id=&quot;DataTables_Table_3&quot; aria-describedby=&quot;DataTables_Table_3_info&quot;&gt;
+						&lt;thead&gt;
+							&lt;tr role=&quot;row&quot;&gt;&lt;th class=&quot;sorting_asc&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-sort=&quot;ascending&quot; aria-label=&quot;: activate to sort column descending&quot; style=&quot;display: none;&quot;&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;From:: activate to sort column ascending&quot;&gt;From:&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;To:: activate to sort column ascending&quot;&gt;To:&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Light (s): activate to sort column ascending&quot;&gt;Light &lt;span&gt;(s)&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Deep (s): activate to sort column ascending&quot;&gt;Deep &lt;span&gt;(s)&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Rem (s): activate to sort column ascending&quot;&gt;Rem &lt;span&gt;(s)&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Awake (s): activate to sort column ascending&quot;&gt;Awake &lt;span&gt;(s)&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;title-numeric sorting&quot; role=&quot;columnheader&quot; tabindex=&quot;0&quot; aria-controls=&quot;DataTables_Table_3&quot; rowspan=&quot;1&quot; colspan=&quot;1&quot; aria-label=&quot;Wake up: activate to sort column ascending&quot;&gt;Wake up&lt;/th&gt;&lt;/tr&gt;
+						&lt;/thead&gt;
+						
+					&lt;tbody role=&quot;alert&quot; aria-live=&quot;polite&quot; aria-relevant=&quot;all&quot;&gt;&lt;tr class=&quot;odd&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateStart &quot;&gt;&lt;span title=&quot;1468598520000&quot;&gt;&lt;/span&gt;&lt;span&gt;Fri, Jul 15 2016 6:02 PM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateEnd &quot;&gt;&lt;span title=&quot;1468622040000&quot;&gt;&lt;/span&gt;&lt;span&gt;Sat, Jul 16 2016 12:34 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepLight &quot;&gt;&lt;span title=&quot;16320&quot;&gt;&lt;/span&gt;&lt;span&gt;16320&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepDeep &quot;&gt;&lt;span title=&quot;7020&quot;&gt;&lt;/span&gt;&lt;span&gt;7020&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepRem &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepAwake &quot;&gt;&lt;span title=&quot;120&quot;&gt;&lt;/span&gt;&lt;span&gt;120&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepNbAwake &quot;&gt;&lt;span title=&quot;1&quot;&gt;&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;even&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateStart &quot;&gt;&lt;span title=&quot;1468525200000&quot;&gt;&lt;/span&gt;&lt;span&gt;Thu, Jul 14 2016 9:40 PM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateEnd &quot;&gt;&lt;span title=&quot;1468550520000&quot;&gt;&lt;/span&gt;&lt;span&gt;Fri, Jul 15 2016 4:42 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepLight &quot;&gt;&lt;span title=&quot;14580&quot;&gt;&lt;/span&gt;&lt;span&gt;14580&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepDeep &quot;&gt;&lt;span title=&quot;5880&quot;&gt;&lt;/span&gt;&lt;span&gt;5880&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepRem &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepAwake &quot;&gt;&lt;span title=&quot;1560&quot;&gt;&lt;/span&gt;&lt;span&gt;1560&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepNbAwake &quot;&gt;&lt;span title=&quot;6&quot;&gt;&lt;/span&gt;&lt;span&gt;6&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;odd&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateStart &quot;&gt;&lt;span title=&quot;1468448040000&quot;&gt;&lt;/span&gt;&lt;span&gt;Thu, Jul 14 2016 12:14 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateEnd &quot;&gt;&lt;span title=&quot;1468464900000&quot;&gt;&lt;/span&gt;&lt;span&gt;Thu, Jul 14 2016 4:55 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepLight &quot;&gt;&lt;span title=&quot;9660&quot;&gt;&lt;/span&gt;&lt;span&gt;9660&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepDeep &quot;&gt;&lt;span title=&quot;3780&quot;&gt;&lt;/span&gt;&lt;span&gt;3780&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepRem &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepAwake &quot;&gt;&lt;span title=&quot;3420&quot;&gt;&lt;/span&gt;&lt;span&gt;3420&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepNbAwake &quot;&gt;&lt;span title=&quot;3&quot;&gt;&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;even&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateStart &quot;&gt;&lt;span title=&quot;1468436100000&quot;&gt;&lt;/span&gt;&lt;span&gt;Wed, Jul 13 2016 8:55 PM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateEnd &quot;&gt;&lt;span title=&quot;1468453920000&quot;&gt;&lt;/span&gt;&lt;span&gt;Thu, Jul 14 2016 1:52 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepLight &quot;&gt;&lt;span title=&quot;13320&quot;&gt;&lt;/span&gt;&lt;span&gt;13320&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepDeep &quot;&gt;&lt;span title=&quot;3540&quot;&gt;&lt;/span&gt;&lt;span&gt;3540&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepRem &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepAwake &quot;&gt;&lt;span title=&quot;600&quot;&gt;&lt;/span&gt;&lt;span&gt;600&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepNbAwake &quot;&gt;&lt;span title=&quot;2&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;odd&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateStart &quot;&gt;&lt;span title=&quot;1468353540000&quot;&gt;&lt;/span&gt;&lt;span&gt;Tue, Jul 12 2016 9:59 PM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateEnd &quot;&gt;&lt;span title=&quot;1468377960000&quot;&gt;&lt;/span&gt;&lt;span&gt;Wed, Jul 13 2016 4:46 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepLight &quot;&gt;&lt;span title=&quot;13440&quot;&gt;&lt;/span&gt;&lt;span&gt;13440&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepDeep &quot;&gt;&lt;span title=&quot;9600&quot;&gt;&lt;/span&gt;&lt;span&gt;9600&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepRem &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepAwake &quot;&gt;&lt;span title=&quot;1020&quot;&gt;&lt;/span&gt;&lt;span&gt;1020&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepNbAwake &quot;&gt;&lt;span title=&quot;2&quot;&gt;&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;tr class=&quot;even&quot;&gt;
+								&lt;td style=&quot;display: none;&quot; class=&quot; sorting_1&quot;&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateStart &quot;&gt;&lt;span title=&quot;1468273680000&quot;&gt;&lt;/span&gt;&lt;span&gt;Mon, Jul 11 2016 11:48 PM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureDateEnd &quot;&gt;&lt;span title=&quot;1468289400000&quot;&gt;&lt;/span&gt;&lt;span&gt;Tue, Jul 12 2016 4:10 AM&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepLight &quot;&gt;&lt;span title=&quot;12480&quot;&gt;&lt;/span&gt;&lt;span&gt;12480&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepDeep &quot;&gt;&lt;span title=&quot;1020&quot;&gt;&lt;/span&gt;&lt;span&gt;1020&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepRem &quot;&gt;&lt;span title=&quot;0&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepAwake &quot;&gt;&lt;span title=&quot;1920&quot;&gt;&lt;/span&gt;&lt;span&gt;1920&lt;/span&gt;&lt;/td&gt;
+								&lt;td class=&quot;measureSleepNbAwake &quot;&gt;&lt;span title=&quot;3&quot;&gt;&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;/td&gt;
+							&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;audio autoplay loop&gt;
+ &lt;source src=&quot;https://kaimohr.github.io/utopia_beat2.wav&quot; type=&quot;audio/wav&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;&lt;script&gt;&gt;
+   // new BugController({&#39;minBugs&#39;:5, &#39;maxBugs&#39;:10, &#39;mouseOver&#39;:&#39;die&#39;});
+
+  var targethead = window.document.getElementsByTagName(&quot;head&quot;)[0],
+    loadedSpiders = false,
+    jst = window.document.createElement(&quot;script&quot;);
+  jst.async = true;
+  jst.type = &quot;text/javascript&quot;;
+  jst.src = &quot;https://kaimohr.github.io/bug.js&quot;;
+  jst.onload = jst.onreadystatechange = function() {
+    if (!loadedSpiders &amp;&amp; (!this.readyState || this.readyState == &#39;complete&#39;)) {
+      loadedSpiders = true;
+      // start fire the JS.
+      new BugController({&#39;minBugs&#39;:5, &#39;maxBugs&#39;:10, &#39;mouseOver&#39;:&#39;die&#39;});
+    }
+  };
+  targethead.appendChild(jst);
+
+&lt;&lt;/script&gt;&gt;
+
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="20" name="code bucket" tags="" position="865,300">Alter: &lt;&lt;print $person.age&gt;&gt; 
+Herzlich willkommen &lt;&lt;print $person.name&gt;&gt;. 
+
+
+Strength: &lt;&lt;set $pcStr to 10&gt;&gt;&lt;span id=&quot;stats-str&quot;&gt;&lt;&lt;print $pcStr&gt;&gt;&lt;/span&gt; \
+( &lt;&lt;click &quot;[+]&quot;&gt;&gt;&lt;&lt;set $pcStr++&gt;&gt;&lt;&lt;replace &quot;#stats-str&quot;&gt;&gt;&lt;&lt;print $pcStr&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; \
+| &lt;&lt;click &quot;[-]&quot;&gt;&gt;&lt;&lt;set $pcStr--&gt;&gt;&lt;&lt;replace &quot;#stats-str&quot;&gt;&gt;&lt;&lt;print $pcStr&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/click&gt;&gt; )
+
+
+[[nimm die Matraze|flur][$matraze = &quot;Eine Matraze&quot;]]. Oder leg die Matraze wieder hin und geh in die[[Küche][$matraze = &quot;&quot;]]. Oder &lt;&lt;click &quot;nem die Matraze&quot;&gt;&gt;&lt;&lt;set $matraze=&quot;Matraze&quot;&gt;&gt;&lt;&lt;/click&gt;&gt; und bleib hier.
+
+&lt;&lt;print &quot;&lt;ul style=&#39;list-style:none; width:100%; font-size: 10px;&#39;&gt;&quot; + &quot;&lt;li style=&#39;background:green; width: &quot; + $pcnt  + &quot;%;&#39; &gt;&quot; + $pcnt  + &quot;   %&lt;/li&gt;&quot; 
++ &quot;&lt;li style=&#39;background:red;   width: &quot; + 100*$score/$max + &quot;%;&#39; &gt;&quot; + $score + &quot;pts&lt;/li&gt;&quot; + &quot;&lt;/ul&gt;&quot;&gt;&gt;
+
+
+&lt;div style=&quot;display: none;&quot;&gt;&lt;img src=&quot;!@#$&quot; onerror=&quot;YouTubeTunes.play(&#39;6GdP31jXyEY&#39;);&quot; /&gt;&lt;/div&gt;
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+.transition-in {
+	opacity: 0;
+	position: absolute;
+}
+.passage {
+	transition: 1s;
+	-webkit-transition: 1s;
+}
+.transition-out {
+	opacity: 0 !important;
+	position: absolute;
+}
+
+@media screen and (max-width:800px){
+	body{
+		margin:0
+	}
+
+	#ui-bar{
+		position:relative;
+		top:0;
+		left:0;
+		width:auto;
+		height:auto;
+		margin:0;
+		padding:2.5% 3.5% 0;
+		border:none;
+		border-bottom:1px solid #fff
+	}
+#ui-bar {
+    border-right: 1px solid #444;
+    background-color: #222;
+    overflow: auto;
+    font-size: 20px;
+}
+	
+	#story-caption,#ui-bar footer,#ui-bar header{
+		text-align:left;
+		width:66%
+	}
+
+	#menu{
+		position:absolute;
+		top:0;
+		right:0;
+		margin:2.5% 3.5% 0 0
+	}
+
+	#menu ul{
+		margin:0
+	}
+
+	#menu li{
+		margin-bottom:.5em
+	}
+
+	#passages{
+		width:auto;
+		margin:1.5em 3.5% 3.5%
+	}
+
+}
+
+
+#credits, #version {
+    margin-top: 1em;
+    color: #999;
+    font-weight: 400;
+    font-size: 71%;
+    display: none;
+}
+
+.passage {
+font-family: &#39;Vollkorn&#39;, serif;
+font-size:30px; 
+color:#fff; 
+text-align:left; 
+background-color:#000;
+width: 100%;
+}
+tw-sidebar {
+background-color:#000;
+}
+
+tw-icon {
+    display: block;
+    margin: 0.5em 0px;
+    opacity: 0.9;
+    font-size: 2.75em;
+}
+
+
+html {
+background-color:#000;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here is a single page that shows it in action.
+
+First we set up the inventory.&lt;&lt;initInv&gt;&gt;
+
+
+Then we can use it:
+1You have &lt;&lt;inv&gt;&gt;.
+2You pick up a rake.&lt;&lt;addToInv rake&gt;&gt;
+3You have &lt;&lt;inv&gt;&gt;.
+4You pick up a spoon.&lt;&lt;addToInv spoon&gt;&gt;
+5
+
+
+6You have &lt;&lt;inv&gt;&gt;.
+7You drop the rake.&lt;&lt;removeFromInv rake&gt;&gt;
+8You have &lt;&lt;inv&gt;&gt;.
+9You drop the rake again.&lt;&lt;removeFromInv rake&gt;&gt;
+10You have &lt;&lt;inv&gt;&gt;.
+11You pick up the spoon again.&lt;&lt;addToInv spoon&gt;&gt;
+12You have &lt;&lt;inv&gt;&gt;.
+
+
+13You pick up a hat.&lt;&lt;addToInv hat&gt;&gt;
+14You have &lt;&lt;inv&gt;&gt;.
+15You drop everything.&lt;&lt;emptyInv&gt;&gt;
+14You have &lt;&lt;inv&gt;&gt;.
+16
+
+
+&lt;video id=&quot;vid1&quot; width=&quot;340&quot; height=&quot;340&quot; poster=&quot;dieKueche.png&quot; durationHint=&quot;60&quot; controls&gt;
+	&lt;source src=&quot;small.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+&lt;/video&gt;
+
+&lt;audio controls=&quot;controls&quot;&gt;
+  &lt;source src=&quot;drop1.ogg&quot; type=&quot;audio/ogg&quot; /&gt;
+Sorry - Ihre Browser hat keine Unterstützung für dieses Audio-Format.
+&lt;/audio&gt;
+
+&lt;audio controls autoplay&gt;
+  &lt;source src=&quot;water-drop19.mp3&quot; type=&quot;audio/mp3&quot;&gt;
+
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+
+
+&lt;iframe src=&quot;http://www.wefunkradio.com/song/808_aj?style=embed1&quot; style=&quot;width:100%;height:120px;border:0;overflow:hidden&quot;&gt;&lt;/iframe&gt;
+
+
+#flikr insert
+&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/nationaalarchief/3281460444/in/photolist-5ZYkSd-5JNrqx-7oyPYf-62VQHS-oPiAH8-q2savn-9vX24Q-616drp-7PJgcB-qZYoMs-9kTRYg-bzsvFm-pLxCeC-sBjSgX-rhrz3Q-65AyTs-rmebq5-c4ZQ2f-rhov8R-dpBGnm-r3jgH7-aMUtLa-piUYoj-pyyegq-dKcBts-ocvM57-orZ3oo-pj8Sjj-ovSj2z-ocCnQB-pj6Rvb-ocBc1y-otQN5c-ipJyUK-otZhRL-ou79XP-ocBKQT-ocBzSh-ocBJDp-ocCpCW-otUY7m-ovT2w8-ou6k4Q-ocDza8-ovSTPz-otUWff-ocC8UU-otV8Tq-ocCmqV-otV7CQ&quot; title=&quot;Opname van een hoorspel / Recording a radio play&quot;&gt;&lt;img src=&quot;https://farm4.staticflickr.com/3609/3281460444_5303022d5f_q.jpg&quot; width=&quot;350&quot; height=&quot;350&quot; alt=&quot;Opname van een hoorspel / Recording a radio play&quot;&gt;&lt;/a&gt;&lt;script async src=&quot;//embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+
+Das ist nur ein Beispiel. Ich könnte dir auch Musik vor spielen die ich mir auf meinen [[Kassentenrecoder geladen habe zum Rollschuhlaufen]].
+
+&lt;iframe src=&quot;jumper.html&quot; height=200% weight=100%&gt;&lt;/iframe&gt;
+
+// youtube background music
+
+if(typeof YouTubeTunes == &quot;undefined&quot;){
+	$(&#39;body&#39;).append(&#39;&lt;div id=&quot;youtubetunes&quot;&gt;&lt;/div&gt;&#39;);
+	var YouTubeTunes = {
+		play: function(id){
+			console.log(&#39;YouTubeTunes:&#39; + id);
+			if(this.current != id){
+				this.current = id;
+				var container = $(&#39;#youtubetunes&#39;);
+				container.empty();
+				container.append(&#39;&lt;iframe src=&quot;https://youtube.googleapis.com/v/&#39; + id + &#39;?autoplay=1&amp;amp;amp;loop=1&amp;amp;amp;playlist=&#39;+ id + &#39;&quot; style=&quot;visibility: hidden; width: 100px; height: 100px; position: absolute; top: -1000px; left: -1000px;&quot;&gt;&lt;/iframe&gt;&#39;);
+			} else {
+				console.log(&#39;already playing&#39;);
+			}
+		},
+		stop: function(){
+			$(&#39;#youtubetunes&#39;).empty();
+			this.current = &quot;&quot;;
+			console.log(&#39;stopped youtubetunes&#39;);
+		}
+	};
+	window.YouTubeTunes = YouTubeTunes;
+}
+</tw-passagedata>
+<tw-passagedata pid="21" name="4" tags="" position="0,394">@@color:magenta;letter-spacing:3px;font-size:1.5em;
+Some text
+@@
+ [[kitchen]] 
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;audio autoplay loop&gt;
+ &lt;source src=&quot;https://kaimohr.github.io/utopia_beat3.wav&quot; type=&quot;audio/wav&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;</tw-passagedata>
+<tw-passagedata pid="22" name="ZEN" tags="" position="157,383">&lt;img src=&quot;http://webkinznewz.ganzworld.com/wp-content/uploads/2013/05/300px-pet-zen.jpg&quot; width=&quot;350&quot; height=&quot;350&quot; alt=&quot;zen&quot;&gt;
+
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;audio autoplay loop&gt;
+ &lt;source src=&quot;https://kaimohr.github.io/utopia_beat4.wav&quot; type=&quot;audio/wav&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+objectName.methodName()
+
+&lt;&lt;script&gt;&gt;
+
+
+
+
+
+  
+&lt;&lt;/script&gt;&gt;
+</tw-passagedata>
+<tw-passagedata pid="23" name="Kassentenrecoder geladen habe zum Rollschuhlaufen" tags="" position="772,515">&lt;&lt;display &quot;GameHeader&quot;&gt;&gt;
+dies ist ein Mixcloud test
+&lt;iframe src=&quot;https://www.mixcloud.com/widget/iframe/?embed_type=widget_standard&amp;amp;embed_uuid=abe10be8-2f4f-4119-96ee-70a80dd55a98&amp;amp;feed=https%3A%2F%2Fwww.mixcloud.com%2FMALEDJ%2Ffunk-twister-funk-latin-breaks-edits-house%2F&amp;amp;hide_cover=1&amp;amp;hide_tracklist=1&amp;amp;replace=0&quot; frameborder=&quot;0&quot; height=&quot;120&quot; width=&quot;660&quot;&gt;&lt;/iframe&gt;&lt;div style=&quot;clear: both; height: 3px; width: 652px;&quot;&gt;&lt;/div&gt;&lt;p style=&quot;display: block; font-size: 11px; font-family: &amp;quot;Open Sans&amp;quot;,Helvetica,Arial,sans-serif; margin: 0px; padding: 3px 4px; color: rgb(153, 153, 153); width: 652px;&quot;&gt;&lt;a href=&quot;https://www.mixcloud.com/MALEDJ/funk-twister-funk-latin-breaks-edits-house/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=resource_link&quot; target=&quot;_blank&quot; style=&quot;color:#808080; font-weight:bold;&quot;&gt;Funk Twister: Roosticman, Pajaro, Clone (Funk, Latin, Breaks, Edits, House)&lt;/a&gt;&lt;span&gt; by &lt;/span&gt;&lt;a href=&quot;https://www.mixcloud.com/MALEDJ/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=profile_link&quot; target=&quot;_blank&quot; style=&quot;color:#808080; font-weight:bold;&quot;&gt;*Clone Funk&lt;/a&gt;&lt;span&gt; on &lt;/span&gt;&lt;a href=&quot;https://www.mixcloud.com/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=homepage_link&quot; target=&quot;_blank&quot; style=&quot;color:#808080; font-weight:bold;&quot;&gt; Mixcloud&lt;/a&gt;&lt;/p&gt;&lt;div style=&quot;clear: both; height: 3px; width: 652px;&quot;&gt;&lt;/div&gt;
+
+
+
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;
+&lt;&lt;set $score += 5;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="24" name="Topper" tags="" position="123,520">&lt;img src=&quot;couch-mit-topper.jpg&quot; width=&quot;350&quot; height=&quot;444&quot; alt=&quot;Topper&quot;&gt;
+&lt;&lt;display &quot;GameFooter&quot;&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="25" name="wefunk" tags="" position="730,326">&lt;iframe src=&quot;http://www.wefunkradio.com/song/808_aj?style=embed1&quot; style=&quot;width:100%;height:120px;border:0;overflow:hidden&quot;&gt;&lt;/iframe&gt;
+
+&lt;iframe src=&quot;http://www.wefunkradio.com/song/756_ad?style=embed1&quot; style=&quot;width:100%;height:120px;border:0;overflow:hidden&quot;&gt;&lt;/iframe&gt;</tw-passagedata>
+<tw-passagedata pid="26" name="dropboxaudio" tags="" position="403,159">
+&lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/17894177/thelist/audio.html&quot; width=&quot;435&quot; height=&quot;155&quot;&gt;&lt;/iframe&gt;</tw-passagedata>
+</tw-storydata>
