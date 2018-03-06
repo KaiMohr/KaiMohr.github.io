@@ -148,6 +148,8 @@ end
 
   getJobUpdateIndeedES("qa", "Madrid")
   getJobUpdateIndeedES("ruby", "Madrid")
+  getJobUpdateIndeedES("qa", "Barcelona")
   getJobUpdateIndeedES("ruby", "Barcelona")
-#  getJobUpdateIndeedES("qa", "Malaga")
+  getJobUpdateIndeedES("qa", "Malaga")
+  getJobUpdateIndeedES("ruby", "Malaga")
 
