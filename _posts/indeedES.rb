@@ -61,6 +61,7 @@ searchdate =  Time.now.strftime("%d/%m/%Y")
 # readingSpeed = "180"
 
  puts " Search results for search term #{searchString}, and city #{targetCity}. I have found #{howmanyOffers} job offers at #{searchdate}"
+
 resultsHeaderText = " Search results for search term #{searchString}, and city #{targetCity}. I have found #{howmanyOffers} job offers at #{searchdate}"
 
 
@@ -97,8 +98,10 @@ end
     append.puts "title:  "#{searchString}-#{targetCity}"
     append.puts "date:  #{date} "
     append.puts "categories: jobsearch "
+    append.puts "excerpt_separator: <!--more-->"
     append.puts "---"
-    append.puts resultsHeaderText
+    append.puts "#{resultsHeaderText}"
+    append.puts "<!--more-->" 
 end  
 
 
@@ -148,8 +151,16 @@ end
 
   getJobUpdateIndeedES("qa", "Madrid")
   getJobUpdateIndeedES("ruby", "Madrid")
+  getJobUpdateIndeedES("big data", "Madrid")
+  getJobUpdateIndeedES("java", "Madrid")
+
   getJobUpdateIndeedES("qa", "Barcelona")
   getJobUpdateIndeedES("ruby", "Barcelona")
+  getJobUpdateIndeedES("big data", "Barcelona")
+  getJobUpdateIndeedES("java", "Barcelona")
+
   getJobUpdateIndeedES("qa", "Malaga")
-  getJobUpdateIndeedES("ruby", "Malaga")
+   getJobUpdateIndeedES("qa", "Malaga")
+  getJobUpdateIndeedES("big data", "Malaga")
+ getJobUpdateIndeedES("java", "Malaga")
 

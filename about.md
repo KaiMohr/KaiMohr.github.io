@@ -5,14 +5,13 @@ permalink: /about/
 ---
 
 
+{% for post in site.categories.languages %}
+<li>
+  <a href="{{ post.url }}">{{ post.title }}</a>
+   <p>{{ post.excerpt }}</p>
+</li>
+{% endfor %}
 
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
 
 [email@domain.com](mailto:email@domain.com)

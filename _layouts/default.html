@@ -32,6 +32,8 @@
           <nav>
             <a href="{{ site.baseurl }}/">Blog</a>
             <a href="{{ site.baseurl }}/about">About</a>
+              <a href="{{ site.baseurl }}/sitelist">sitelist</a>
+              <a href="{{ site.baseurl }}/jobsearch">jobsearch</a>
           </nav>
         </header>
       </div>
@@ -44,6 +46,37 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
+
+            <h4>test</h4>
+            {% for post in site.categories.test limit:5 %}
+              {% if post.url %}
+                    <h5 class="entry-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                       <p>{{ post.excerpt }}</p>
+                      </h5>
+              {% endif %}
+            {% endfor %}
+
+          <h4>Recent Posts</h4>
+          {% for post in site.posts offset:1 limit:8 %}
+          <h5 class="entry-title">
+       <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+       <p>{{ post.excerpt }}</p>
+
+      </h5>
+          {% endfor %}
+
+          <h4>youtube</h4>
+            {% for post in site.categories.youtube limit:5 %}
+              {% if post.url %}
+                    <h5 class="entry-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                       <p>{{ post.excerpt }}</p>
+                      </h5>
+              {% endif %}
+            {% endfor %}
+
+
           {% include svg-icons.html %}
         </footer>
       </div>

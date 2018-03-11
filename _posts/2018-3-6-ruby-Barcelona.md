@@ -3,8 +3,11 @@ layout: post
 title:  
 date:  2018-3-6 
 categories: jobsearch 
+excerpt_separator: <!--more-->
 ---
  Search results for search term ruby, and city Barcelona. I have found  163 job offers at 06/03/2018
+<!--more-->
+
 <br>
 1
 ![logo]({{ "/images/rocket.png" | absolute_url }})
