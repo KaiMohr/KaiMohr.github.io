@@ -86,4 +86,4 @@ exclude:
   - CNAME
   - .json 
 
-theme: jekyll-theme-cayman
+theme: jekyll-theme-merlot
