@@ -1,0 +1,9 @@
+source :rubygems
+
+  gem 'cucumber'
+  gem 'rspec-expectations'
+  gem 'watir-webdriver'
+  gem 'capybara'
+  gem 'poltergeist', '1.6.0'
+  gem 'nokogiri'
+  gem 'capybara-screenshot-nocolor'
