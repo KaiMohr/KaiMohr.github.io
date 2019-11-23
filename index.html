@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lang="en" class="" data-kantu="1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script src="jquery.min.js" type="text/javascript"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style class="cp-pen-styles">
+  
+@media only screen and (min-width: 368px) {
+ 
+}
+html{
+  min-width:100%;
+  max-width:900px;
+  overflow:hidden;
+  background:black;
+  font-size: 20pt;
+}
+
+h4{
+  text-align: center;
+  position: relative;
+  padding-right: 5em;
+  margin-right: 180px;
+}
+body{
+  min-width:100%;
+  max-width:1080px;
+  width:100%; 
+  height:100%;
+  overflow:screen;
+}
+h1{
+  text-align:center;
+  font-family:sans-serif;
+  color: white;
+}
+p {
+  text-align: center;
+}
+#front {  
+  min-width:100%;
+  max-width:900px;
+  text-align: center;
+  margin-bottom: 10px;
+} 
+#back {
+  position: absolute;
+  min-width:100%;
+  max-width:900px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#activeCardButtons {
+  position: absolute;
+  top: 200px;
+  margin: 1px;
+  padding: 1px;
+  min-width: 90%;
+  max-width: 900px;
+  margin-top: 10px;
+  margin-left:10px;
+  margin-right:10px;
+}
+#prev {
+  margin-left:5%;
+  padding: 3px;
+  color: #ccc;
+  font-size: 1em;
+  background-image: linear-gradient(rgb(17, 16, 16), rgb(9, 61, 46));
+}
+#flip {
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 25px;
+  color: #ccc;
+  font-size: 1em;
+  background-image: linear-gradient(rgb(17, 16, 16), rgb(9, 61, 46));
+}
+#next {
+  margin-left:5px;
+  color: #ccc;
+  font-size: 1em;
+  padding: 5px;
+  background-image: linear-gradient(rgb(17, 16, 16), rgb(9, 61, 46));
+}
+#random {
+  margin-top: 90px;
+  margin-left:15px;
+  color: #ccc;
+  font-size: 1em;
+  padding: 5px;
+  background-image: linear-gradient(rgb(17, 16, 16), rgb(9, 61, 46));
+}
+#submit {
+  color: white;
+  position:relative;
+  width:180px;
+  margin-left:10;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+#cardForm {
+  position:absolute;
+  width: 100%;
+  margin-left:50%;
+  margin-top:10px;
+}
+#front {
+  margin-top: 10px;
+  color: #ccc
+} 
+#back{
+  top: 25px;
+  display:block;
+  color: #ccc
+}
+
+
+/* #front:hover:before{
+  position:relative;
+  float:left;
+  font-size:24px;
+  content:'Question/Term:';
+  z-index:-1;
+  margin-right:-100%;
+  margin-top: -6px;
+  color:grey;
+}
+#back:hover:before{ 
+  position:relative;
+  float:left;
+  font-size:24px;
+  content:'Answer/Definition:';
+  z-index:-1;
+  margin-right:-100%;
+  margin-top:-8px;
+  color:grey;
+} */
+
+#clearDeck{
+  color: white;
+  position:relative;
+  width:360px;
+  margin-left:-90px;
+  display: block;
+}
+#clearDeck:hover{
+  color:red;
+  border: 3px solid red;
+}
+#formContainer{
+  display:block;
+  position:relative;
+  margin-left:-90px;
+  width:100%;
+}
+#newTerm{
+  position:relative;
+  width:180px;
+  margin-top:10px;
+  display:block;
+}
+#newDef{
+  position:relative;
+  width:180px;
+  margin-top:10px;
+  
+}
+hr {
+  margin-left:-8px;
+}
+a.activator {
+  color: white;
+  cursor:pointer;
+  position: absolute;
+  font-size: x-small;
+  
+}
+#importExport {
+    font-size:x-small;
+    position:relative;
+    bottom:200px;
+    left:-600px;
+    width: 500px;
+	  height:180px;
+    background-color:#fff;
+    color:#7F7F7F;
+    padding:0px;
+	
+    border:0px solid #ccc;
+
+    -moz-box-shadow: 0 1px 5px #333;
+    -webkit-box-shadow: 0 1px 5px #333;
+	border-radius: 20px;
+	    -moz-border-radius: 20px;
+    -webkit-border-radius:20px;
+    -khtml-border-radius:20px;
+    z-index:101;
+  
+}
+#import {
+	float:left;
+	width: 50%;
+/* 		height: 100%; */
+/* 	position:fixed; */
+	height:80%;
+	left:0px;
+	background-color: lightgreen;
+		border-bottom-left-radius: 20px;
+			border-top-left-radius: 20px;
+
+}
+#export {
+/* 	clear:right; */
+	float:right;
+	width:50%;
+/* 	position:fixed; */
+	height:100%;
+	right: 0px;
+
+	background-color: seagreen;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+		
+}
+@-webkit-keyframes slideright {
+  0%{
+    
+  }
+  100%{
+    
+  }
+
+}
+@keyframes slideright {
+  0%{
+    
+  }
+  100%{
+    
+  }
+
+}
+@-webkit-keyframes slideleft {
+  0%{
+    
+  }
+  100%{
+    
+  }
+}
+@keyframes slideleft {
+  0%{
+    
+  }
+  100%{
+    
+  }
+}
+a.close {
+				position:relative;
+/* 	display: inline; */
+            float:right;
+            width:26px;
+            height:26px;
+            background:transparent url(https://microwavemansion.com/images/cancel.png) repeat top left;
+            margin-top:-26px;
+            margin-right:-26px;
+            cursor:pointer;
+}
+.overlay{
+    background:transparent url(https://microwavemansion.com/images/overlay.png) repeat top left;
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index:100;
+}
+#deckSubmit {
+	border-bottom-left-radius: 20px;
+	width:50%;
+	/* position: absolute; */
+	bottom: 0px;
+	height:50px
+/* 	height:100%; */
+}
+#deckSubmit:hover {
+	border:2px solid green;
+}
+#saveDeck {
+	border-bottom-right-radius: 20px;
+	width:50%;
+	position:absolute;
+	bottom: 0px;
+			height:50px;
+}
+#saveDeck:hover {
+	border: 2px solid limegreen;
+}
+#uploadDeck {
+	padding-left:5px;
+}
+
+</style>
+</head>
+<body>
+
+<p id="front">Lexical Environment</p><br>
+<hr><br>
+<div id="back" style="visibility: hidden;">Where code sits in relation to any surrounding code</div><br>
+<div id="activeCardButtons">
+<button id="prev" onclick="prevCard()">Previous
+</button>
+<button id="flip" type="button" value="Flip" onclick="flash()">
+Flip</button>
+<button id="next" onclick="nextCard()">Next
+<button id="random" onclick="randomCard()">Random 
+</button>
+</div>
+<br>
+<br>
+<br>
+<!-- 
+<div id="formContainer">
+<form id="cardForm">
+<input id="newTerm" type="text" placeholder="Add your own term or concept..." onkeydown="if(event.keyCode==13) document.getElementById(&#39;newDef&#39;).focus()">
+<input id="newDef" type="text" placeholder="...give it a definition, then click the button to..." onkeydown="if(event.keyCode==13) cardAdd()">
+<br>
+<input id="submit" type="button" value="add it to the deck!" onclick="cardAdd()">
+<br>
+<input id="clearDeck" type="button" value="Click HERE to clear the deck!" onclick="emptyDeck()">
+</form>
+<br>
+</div>
+<select id="selectCards" style="display:none;">
+</select>
+<div id="importExport">
+<div id="import">
+<h2 style="text-align:center;">Import</h2>
+<p>choose a local file containing a <code>.json</code> array of cards, and then click below!</p>
+<input id="uploadDeck" type="file">
+<button id="deckSubmit" onclick="upload_deck()">Choose a File and Click Here</button>
+</div>
+<div id="export">
+<a class="close" id="close" onclick="slideOut()"></a>
+<h2 style="text-align:center;color:white;">Export</h2>
+<p style="color:white;">Click below to save a local <code>.json</code> file containing the current deck.</p>
+<button id="saveDeck" onclick="download_deck()">Save this Deck?</button>
+</div>
+</div> 
+<a class="activator" id="activator" onclick="slideIn()">Click Here to Import &amp; Export/Save Decks of Cards</a>
+<script type="text/javascript">
+
+    </script>
+-->
+<script src="./stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script><script src="./jquery.min(1).js"></script>
+<script id="rendered-js">
+          function Card(term, definition, category) {
+  this.term = term;
+  this.definition = definition;
+  //this.category = category;
+}
+var newDeck = [];
+var newCard;
+var front = document.getElementById("front");
+var back = document.getElementById("back");
+var flip = document.getElementById("flip");
+var submit = document.getElementById("submit");
+var clearDeck = document.getElementById("clearDeck");
+var formFront, formBack;
+
+function slideIn() {
+  $('#importExport').animate({ 'left': '10px' }, 500);
+
+};
+function slideOut() {
+  $('#importExport').animate({ 'left': '-610px' }, 500);
+};
+var card1 = new Card(
+"",
+"",
+"General");
+
+var card2 = new Card(
+"Execution Context",
+"How, Why, When, and Where code is executed",
+"General");
+
+var card3 = new Card(
+"JSON",
+"JavaScript Object Notation, for storing objects and their enclosed data. Often referred to as Key Value Pairs",
+"Objects");
+ 
+ var myCards = [card1, card2, card3];
+ var cardIndex = 0;
+ default_deck();
+front.innerHTML = card1.term;
+back.innerHTML = card1.definition;
+back.style.visibility = "hidden";
+function flash() {
+  if (front.style.visibility != "hidden") {
+    front.style.visibility = "hidden";
+    back.style.visibility = "visible";
+  } else {
+    front.style.visibility = "visible";
+    back.style.visibility = "hidden";
+  }
+}
+function cardAdd(formFront, formBack) {
+  function clearForm() {
+    document.getElementById("newTerm").value = "";
+    document.getElementById("newDef").value = "";
+    document.getElementById("cardForm").reset();
+  }
+  function updatePlaceholder() {
+    document.getElementById("newTerm").placeholder =
+    "...another term?";
+    document.getElementById("newDef").placeholder =
+    "...and another definition?";
+  }
+  formFront = document.getElementById("newTerm");
+  formBack = document.getElementById("newDef");
+  if (
+  formFront.value !== formBack.value &&
+  formFront.value != "" &&
+  formBack.value != "")
+  {
+    var newCard = new Card();
+    newCard.term = formFront.value;
+    newCard.definition = formBack.value;
+    myCards.push(newCard);
+    cardIndex = myCards.length - 1;
+    clearForm();
+    updatePlaceholder();
+    front.innerHTML = myCards[cardIndex].term;
+    back.innerHTML = myCards[cardIndex].definition;
+    // back.style.visibility = "hidden";
+  } else if (formFront.value == formBack.value) {
+    alert('kinda defeats the purpose of a "flash" card doesn`t it?');
+  } else if (
+  formFront.value == null || formFront.value == "", formBack.value == null ||
+  formBack.value == "", formFront.value == null ||
+  formBack.value == null ||
+  formFront.value == "" ||
+  formBack.value == "")
+  {
+    alert("Fill out both sides of the card, ya dringus!");
+  }
+  document.getElementById("newTerm").focus();
+}
+function nextCard() {
+ // $("p#front").animate({left: "+=100px"});
+  cardIndex = (cardIndex + 1) % myCards.length;
+  front.innerHTML = myCards[cardIndex].term;
+  back.innerHTML = myCards[cardIndex].definition;
+}
+function prevCard() {
+  if (cardIndex > 0)
+  cardIndex = cardIndex - 1;else
+  if (cardIndex == 0) cardIndex = myCards.length - 1;
+  front.innerHTML = myCards[cardIndex].term;
+  back.innerHTML = myCards[cardIndex].definition;
+
+}
+function randomCard() {
+  randomInt = Math.floor((Math.random() * 100));
+  cardIndex = (cardIndex + randomInt) % myCards.length;
+
+  front.innerHTML = myCards[cardIndex].term;
+  back.innerHTML = myCards[cardIndex].definition;
+}
+function emptyDeck() {
+  var confirmation = confirm("Are you sure you want to delete this entire deck?");
+  if (confirmation) {
+    myCards.splice(0, myCards.length);
+    cardIndex = 0;
+    front.innerHTML = "&nbsp;";
+    back.innerHTML = "&nbsp;";
+  }
+  document.getElementById("newTerm").focus();
+}
+document.addEventListener("keyup", function (event) {
+  event.preventDefault();
+  if (event.keyCode == 37) {
+    prevCard();
+  }
+  if (event.keyCode == 39) {
+    nextCard();
+  }
+  if (event.keyCode == 38 || event.keyCode == 40) {
+    flash();
+  }
+  if (event.keyCode == 46) {
+    emptyDeck();
+  }
+  // if (event.keyCode == 9 && !(document.activeElement == document.getElementById("newTerm")) {
+  //     document.getElementById("newTerm");
+  //     }
+});
+function cardSelect(myCards, cardIndex) {
+  var selectCards = document.getElementById("selectCards");
+  var options = selectCards.appendElement("");
+  options.map(myCards.keys);
+}
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  if (document.createEvent) {
+    var event = document.createEvent('MouseEvents');
+    event.initEvent('click', true, true);
+    pom.dispatchEvent(event);
+  } else
+  {
+    pom.click();
+  }
+}
+function download_deck() {
+  let t = JSON.stringify(myCards, null, "\t");
+  let t2 = myCards;
+  let fn = "flashcards.json".toString();
+  download(fn, t);
+}
+function upload_deck() {
+  var files = document.getElementById('uploadDeck').files;
+ // console.log(files);
+  if (files.length <= 0) {
+    return false;
+  }
+
+  var fr = new FileReader();
+
+  fr.onload = function (e) {
+    var newDeck = [];
+    // console.log(e);
+    var result = JSON.parse(e.target.result);
+
+
+    for (i = 0; i < result.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+      var newCard = new Card();
+      let item = result[i];
+      newCard.term = item["term"];
+      newCard.definition = item["definition"];
+    //  console.log("added card");
+    //  console.log(JSON.stringify(newCard.term));
+      newDeck.push(newCard);
+    }
+
+    //  console.log(JSON.stringify(newDeck, null, 2));
+    window.CP.exitedLoop(0);var formatted = JSON.stringify(result, null, 2);
+   //   console.log("Upload Result:\r\n" + formatted);
+    myCards.splice(0, myCards.length, ...newDeck);
+   //   console.log("Current Deck:\r\n");
+   //   console.log(JSON.stringify(myCards));
+    updateDeck();
+    // document.getElementById('result').value = formatted;
+  };
+  fr.readAsText(files.item(0));
+
+  // for (obj in fr.readAstext(files.item(0))) {
+  //   newCard.term = obj["term"];
+  //   newCard.definition == obj["definition"];
+  //   console.log("added card!" + JSON.stringify(newCard.definition));
+  // }
+
+
+};
+function updateDeck() {
+  //$("p#front").animate({left: "+=100px"});
+  document.getElementById("front").innerHTML = myCards[cardIndex].term;
+  document.getElementById("back").innerHTML = myCards[cardIndex].definition;
+}
+function default_deck() {
+    var newDeck = [];
+  // console.log(e);
+
+  var card1 = new Card(
+"START",
+"Where code sits in relation to any surrounding code",
+"General");
+
+var card2 = new Card(
+"Execution Context",
+"How, Why, When, and Where code is executed",
+"General");
+
+var card3 = new Card(
+"JSON",
+"JavaScript Object Notation, for storing objects and their enclosed data. Often referred to as Key Value Pairs",
+"Objects");
+
+  
+  //  var result = JSON.parse('../../flashcards.json');
+    
+  var request = new XMLHttpRequest();
+  // request.open("GET", "../../flashcards1.json", false);
+  request.open("GET", "./flashcards1.json", false);
+   request.send(null)
+   var result = JSON.parse(request.responseText);
+   // alert (my_JSON_object.result[0]);  
+
+     for (i = 0; i < result.length;i++) {
+      var newCard = new Card;
+      let item = result[i];
+      newCard.term = item["term"];
+      newCard.definition = item["definition"];
+    
+    // console.log("added card");
+    // console.log(JSON.stringify(newCard.term));
+      newDeck.push(newCard);
+    }
+
+    // console.log(JSON.stringify(newDeck, null, 2));
+    var formatted = JSON.stringify(result, null, 2);
+    // console.log("Upload Result:\r\n" + formatted);
+    myCards.splice(0, myCards.length, ...newDeck);
+    // console.log("Current Deck:\r\n");
+    // console.log(JSON.stringify(myCards));
+    updateDeck();
+		// document.getElementById('result').value = formatted;
+  }
+          
+        </script>
+</body></html>
