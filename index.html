@@ -31,31 +31,50 @@ body{
 h1{
   text-align:center;
   font-family:sans-serif;
-  color: white;
+  color: #f44336;
 }
 p {
   text-align: center;
+}
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 9px 5px;
+  text-align: center;
+  text-decoration: none;
+  display:inline-flex;
+}
+a:hover, a:active {
+  background-color: orange;
+}
+
+div.links{
+  border: 4px solid rgb(57, 58, 56);
+  display:inline-flex;
+  padding: 4px 5px;
 }
 
 </style>
 </head>
 <body>
 
-    <h2>index</h2>
+    <h1>index</h1>
 
     <p></p>
-    
+    <div class="links">
     <a href="https://kaimohr.github.io/vocab/">
       <img src="/images/words.png" alt="words" style="width:402px;height:40px;border:0">
     </a>
-   
+  </div>
+  <div class="links">
     <a href="https://kaimohr.github.io/">
       <img src="/images/links.png" alt="links" style="width:100px;height:20px;border:0">
     </a>
-    
+  </div>
+    <div class="links">
     <a href="https://kaimohr.github.io/">
       <img src="/images/videos.png" alt="words" style="width:100px;height:40px;border:0">
     </a>
-
+  </div>
 </body>
 </html>
